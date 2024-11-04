@@ -1,0 +1,27 @@
+<a [routerLink]="['/consulta']">Consulta</a><br>
+<a [routerLink]="['/borrar']">Borrar</a>
+
+
+
+
+<form class="form" [formGroup]="RegistroForm" (ngSubmit)="onSubmit()">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" formControlName="nombre">
+
+    <label for="apellidoPaterno">Apellido Paterno</label>
+    <input id="apellidoPaterno" formControlName="apellidoPaterno">
+
+    <label for="apellidoMaterno">Apellido Materno</label>
+    <input id="apellidoMaterno" formControlName="apellidoMaterno">
+
+    <label for="curp">CURP</label>
+    <input id="curp" formControlName="curp">
+
+    <label for="telefono">Teléfono</label>
+    <input id="telefono" formControlName="telefono">
+
+    <button type="submit" [disabled]="RegistroForm.invalid">Guardar</button>
+
+</form>
+
+<h2 *ngIf="_state">Se registro exitosamente</h2>

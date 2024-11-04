@@ -1,0 +1,15 @@
+<a [routerLink]="['/registro']">Registro</a><br>
+
+<a [routerLink]="['/consulta']">Consulta</a>
+
+<form class="form" [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+    <label for="busqueda">Consulta</label>
+    <input id="busqueda" formControlName="param">
+
+
+
+    <button type="submit" [disabled]="deleteForm.invalid">Borrar</button>
+</form
+
+>
+    <h2 *ngIf="_state">Se borro exitosamente</h2>
