@@ -136,6 +136,31 @@ public class EmpleadosController {
     
 
 
+    @PostMapping("/delete")
+    public ResponseEntity<?> deleteEmpleado2(@RequestBody String curp) {
+
+
+        try {
+
+            List<Empleado> empleado = empleadosRepository.findByCurp(curp);
+
+            if(empleado.size()>0){
+                Empleado _empleado = empleado.get(0);
+                empleadosRepository.delete(_empleado);
+                return  new ResponseEntity<>(true, HttpStatus.OK);
+            }
+            return new ResponseEntity<>(false, HttpStatus.OK);
+            
+        } catch (Exception e) {
+
+        }
+
+        
+        return new ResponseEntity<>(null,HttpStatus.NOT_IMPLEMENTED);
+    }
+    
+
+
     
 
 }
